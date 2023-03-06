@@ -9,7 +9,7 @@ def getImagesFromGSV(lat, long, path):
     params = [{
         'size': '640x640',
         'location': str(lat)+','+str(long),
-        'heading': '-20', # lateral rotation
+        'heading': '20', # lateral rotation
         'pitch': '-30', # vertical rotation
         'key': 'AIzaSyByAmga1wYKYBssQqGB3AsQw7NXI5LTYI8'
     }]
@@ -18,4 +18,4 @@ def getImagesFromGSV(lat, long, path):
 
     results.download_links(path)
 
-getImagesFromGSV(41.182899,-8.631079, 'C:\Projetos\Mestrado\masters_thesis\workspace\gsv\images')
+getImagesFromGSV(41.1851996,-8.6150038, 'C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\cobblestone')
