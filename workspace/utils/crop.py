@@ -22,30 +22,14 @@ def cropImage(srcPath, destPath, scalepercent = 100):
 
     cv2.imwrite(destPath, crop_img)
 
-    #cv2.imshow("original", img)
-    #cv2.imshow("resized", resized)
-    #cv2.imshow("cropped", crop_img)
-    #cv2.waitKey(0)
 
-cropImage('C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\asphalt\\gsv_1.jpg', 'C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\asphalt\\1.jpg')
-cropImage('C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\asphalt\\gsv_2.jpg', 'C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\asphalt\\2.jpg')
-cropImage('C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\asphalt\\gsv_3.jpg', 'C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\asphalt\\3.jpg')
+#cropImage('C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\gravel\\gsv_4.jpg', 'C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\gravel\\4.jpg')
 
-cropImage('C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\cobblestone\\gsv_1.jpg', 'C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\cobblestone\\1.jpg')
-cropImage('C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\cobblestone\\gsv_2.jpg', 'C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\cobblestone\\2.jpg')
-cropImage('C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\cobblestone\\gsv_3.jpg', 'C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\cobblestone\\3.jpg')
-cropImage('C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\cobblestone\\gsv_4.jpg', 'C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\cobblestone\\4.jpg')
+srcFolder = "C:\\Projetos\\Mestrado\\masters_thesis\\datasets\\cobblestone_gsv_raw"
+destFolder = "C:\\Projetos\\Mestrado\\masters_thesis\\datasets\\cobblestone_cut"
 
-cropImage('C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\gravel\\gsv_1.jpg', 'C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\gravel\\1.jpg')
-cropImage('C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\gravel\\gsv_2.jpg', 'C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\gravel\\2.jpg')
-cropImage('C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\gravel\\gsv_3.jpg', 'C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\gravel\\3.jpg')
-cropImage('C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\gravel\\gsv_4.jpg', 'C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\gravel\\4.jpg')
-
-#srcFolder = "C:\\Projetos\\Mestrado\\masters_thesis\\datasets\\pavement_type\\cobblestone\\raw"
-#destFolder = "C:\\Projetos\\Mestrado\\masters_thesis\\datasets\\pavement_type\\cobblestone"
-
-#i = 0
-#for file in os.listdir(srcFolder):
-#    i += 1
-#    cropImage(os.path.join(srcFolder, file), os.path.join(destFolder, str(i)+'.png'))
+i = 0
+for file in os.listdir(srcFolder):
+    i += 1
+    cropImage(os.path.join(srcFolder, file), os.path.join(destFolder, str(i)+'.png'))
     
