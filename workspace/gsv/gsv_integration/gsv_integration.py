@@ -11,8 +11,8 @@ def getImagesFromGSV(lat, long, path):
     params = [{
         'size': '640x640',
         'location': str(lat)+','+str(long),
-        'heading': '20', # lateral rotation
-        'pitch': '-30', # vertical rotation
+        'heading': '-50', # lateral rotation
+        'pitch': '-50', # vertical rotation
         'key': 'AIzaSyByAmga1wYKYBssQqGB3AsQw7NXI5LTYI8'
     }]
 
@@ -23,4 +23,4 @@ def getImagesFromGSV(lat, long, path):
     os.rename(os.path.join(path, 'gsv_0.jpg'), os.path.join(path, str(uuid.uuid4())+'.jpg'))
 
 
-getImagesFromGSV(38.7312305,-9.1464207, 'C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\asphalt')
+getImagesFromGSV(38.7085145,-9.1470139, 'C:\\Projetos\\Mestrado\\masters_thesis\\datasets\\pavement_type_raw\\cobblestone')

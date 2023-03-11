@@ -1,0 +1,129 @@
+﻿@page
+@model RouteAssessmentSurvey.Model.SurveyModel
+@{
+    ViewData["Title"] = "Route assessment survey";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Route Assessment Survey</h1>
+
+    <form asp-action="form" method="post">
+
+        <h2>Infrasctructure features:</h2>
+
+        <span>Cycle path presence</span>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="cyclePath" id="cyclePathNo" checked>
+            <label class="form-check-label" for="cyclePathNo">
+                No
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="cyclePath" id="cyclePathYes">
+            <label class="form-check-label" for="cyclePathYes">
+                Yes
+            </label>
+        </div>
+
+        <span>Pavement type</span>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="pavementType" id="pavementTypeAsphalt">
+            <label class="form-check-label" for="pavementTypeAsphalt">
+                Asphalt
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="pavementType" id="pavementTypeCobblestone">
+            <label class="form-check-label" for="pavementTypeCobblestone">
+                Cobblestone
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="pavementType" id="pavementTypeUnpaved">
+            <label class="form-check-label" for="pavementTypeUnpaved">
+                Unpaved
+            </label>
+        </div>
+
+        <span>Pavement defects</span>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="pavementDefects" id="pavementDefectsNo">
+            <label class="form-check-label" for="pavementDefectsNo">
+                No
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="pavementDefects" id="pavementDefectsYes">
+            <label class="form-check-label" for="pavementDefectsYes">
+                Yes
+            </label>
+        </div>
+
+        <hr />
+
+        <h2>Cyclist perception:</h2>
+
+        <span>Comfort and safety perception</span>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="index" id="index1">
+            <label class="form-check-label" for="index1">
+                1
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="index" id="index2">
+            <label class="form-check-label" for="index2">
+                2
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="index" id="index3">
+            <label class="form-check-label" for="index3">
+                3
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="index" id="index4">
+            <label class="form-check-label" for="index4">
+                4
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="index" id="index5">
+            <label class="form-check-label" for="index5">
+                5
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="index" id="index6">
+            <label class="form-check-label" for="index6">
+                6
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="index" id="index7">
+            <label class="form-check-label" for="index7">
+                7
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="index" id="index8">
+            <label class="form-check-label" for="index8">
+                8
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="index" id="index9">
+            <label class="form-check-label" for="index9">
+                9
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="index" id="index10">
+            <label class="form-check-label" for="index10">
+                10
+            </label>
+        </div>
+    <</form>
+
+</div>

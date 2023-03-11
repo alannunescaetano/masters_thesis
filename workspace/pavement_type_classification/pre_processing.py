@@ -47,6 +47,7 @@ def convertToGrayScale(img):
     return cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 
-preProcessImages('C:\\Projetos\\Mestrado\\masters_thesis\\datasets\\pavement_type_raw\\cobblestone', 'C:\\Projetos\\Mestrado\\pavement_type_dataset\\pavement_type_final\\cobblestone', True, False, 224, 224, 100, 150)
-preProcessImages('C:\\Projetos\\Mestrado\\masters_thesis\\datasets\\pavement_type_raw\\asphalt', 'C:\\Projetos\\Mestrado\\pavement_type_dataset\\pavement_type_final\\asphalt', False, False, 224, 224)
-preProcessImages('C:\\Projetos\\Mestrado\\masters_thesis\\datasets\\pavement_type_raw\\gravel', 'C:\\Projetos\\Mestrado\\pavement_type_dataset\\pavement_type_final\\gravel', False, False, 224, 224)
+preProcessImages('C:\\Users\\alanc\\Downloads\\Road_Surface_CLS.v1i.folder\\train\\asphalt', 'C:\\Projetos\\Mestrado\\pavement_type_dataset\\pavement_type_new\\train\\asphalt', False, False, 224, 224)
+#preProcessImages('C:\\Users\\alanc\\Downloads\\Road_Surface_CLS.v1i.folder\\train\\asphalt', 'C:\\Projetos\\Mestrado\\pavement_type_dataset\\pavement_type_final\\asphalt', False, False, 224, 224,)
+#preProcessImages('C:\\Projetos\\Mestrado\\masters_thesis\\datasets\\pavement_type_raw\\unpaved', 'C:\\Projetos\\Mestrado\\pavement_type_dataset\\pavement_type_final\\unpaved', False, False, 224, 224)
+#preProcessImages('C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\asphalt', 'C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\asphalt\\cut', False, False, 224, 224, 100, 150)
