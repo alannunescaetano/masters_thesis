@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 9
+names: ['D00', 'D01', 'D10', 'D11', 'D20', 'D40', 'D43', 'D44', 'D50']
+
+roboflow:
+  workspace: thesis-yuxwe
+  project: pavement-defects
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/thesis-yuxwe/pavement-defects/dataset/2

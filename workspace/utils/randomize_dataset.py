@@ -11,24 +11,24 @@ def splitDataset(datasetPath):
     for folder_path, folders, files in os.walk(datasetPath):
         if(folder_path != pathFull and 'full' in folder_path):
             for file in files:
-                rand_int = random.randint(0, 9)
+                rand_int = random.randint(0, 19)
 
-                if rand_int >= 0 and rand_int <= 6:
+                if rand_int >= 0 and rand_int <= 14:
                     train_path = folder_path.replace("full", "train")
 
                     if(not os.path.isdir(train_path)):
                         os.makedirs(train_path)
                     
                     shutil.copyfile(os.path.join(folder_path, file), os.path.join(train_path, file))
-                elif rand_int >= 7 and rand_int <= 8:
-                    test_path = folder_path.replace("full", "test")
+                elif rand_int >= 15 and rand_int <= 18:
+                    test_path = folder_path.replace("full", "valid")
 
                     if(not os.path.isdir(test_path)):
                         os.makedirs(test_path)
                     
                     shutil.copyfile(os.path.join(folder_path, file), os.path.join(test_path, file))
-                elif rand_int == 9:
-                    validation_path = folder_path.replace("full", "validation")
+                elif rand_int == 19:
+                    validation_path = folder_path.replace("full", "test")
 
                     if(not os.path.isdir(validation_path)):
                         os.makedirs(validation_path)
@@ -39,4 +39,4 @@ def splitDataset(datasetPath):
             
             
 
-splitDataset('C:\\Projetos\\Mestrado\\masters_thesis\\datasets\\pavement_type')
+splitDataset('C:\\Projetos\\Mestrado\\pavement_type_dataset\\gsv_pre_processed')

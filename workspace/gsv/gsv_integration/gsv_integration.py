@@ -6,12 +6,12 @@ import google_streetview.helpers
 import os
 import uuid
 
-def getImagesFromGSV(lat, long, path):
+def getImagesFromGSV(location, path, heading, fileName = None):
 
     params = [{
         'size': '640x640',
-        'location': str(lat)+','+str(long),
-        'heading': '-50', # lateral rotation
+        'location': location,
+        'heading': heading, # lateral rotation
         'pitch': '-50', # vertical rotation
         'key': 'AIzaSyByAmga1wYKYBssQqGB3AsQw7NXI5LTYI8'
     }]
@@ -20,7 +20,11 @@ def getImagesFromGSV(lat, long, path):
 
     results.download_links(path)
 
-    os.rename(os.path.join(path, 'gsv_0.jpg'), os.path.join(path, str(uuid.uuid4())+'.jpg'))
+    if(fileName is None):
+        os.rename(os.path.join(path, 'gsv_0.jpg'), os.path.join(path, str(uuid.uuid4())+'.jpg'))
+    else:
+        os.rename(os.path.join(path, 'gsv_0.jpg'), os.path.join(path, fileName+'.jpg'))
 
+location = '38.7351638,-9.1432162'
 
-getImagesFromGSV(38.7085145,-9.1470139, 'C:\\Projetos\\Mestrado\\masters_thesis\\datasets\\pavement_type_raw\\cobblestone')
+getImagesFromGSV('38.7319946,-9.1049083', 'C:\\Projetos\\Mestrado\\masters_thesis\\workspace\\gsv\\images\\survey',35,'segment1')
