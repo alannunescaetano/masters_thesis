@@ -1,0 +1,15 @@
+C:\Projetos\Mestrado\masters_thesis\survey\consertar_dataset\consertar_dataset\bin\Debug\net6.0\consertar_dataset.exe
+C:\Projetos\Mestrado\masters_thesis\survey\consertar_dataset\consertar_dataset\bin\Debug\net6.0\consertar_dataset.deps.json
+C:\Projetos\Mestrado\masters_thesis\survey\consertar_dataset\consertar_dataset\bin\Debug\net6.0\consertar_dataset.runtimeconfig.json
+C:\Projetos\Mestrado\masters_thesis\survey\consertar_dataset\consertar_dataset\bin\Debug\net6.0\consertar_dataset.dll
+C:\Projetos\Mestrado\masters_thesis\survey\consertar_dataset\consertar_dataset\bin\Debug\net6.0\consertar_dataset.pdb
+C:\Projetos\Mestrado\masters_thesis\survey\consertar_dataset\consertar_dataset\obj\Debug\net6.0\consertar_dataset.csproj.AssemblyReference.cache
+C:\Projetos\Mestrado\masters_thesis\survey\consertar_dataset\consertar_dataset\obj\Debug\net6.0\consertar_dataset.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projetos\Mestrado\masters_thesis\survey\consertar_dataset\consertar_dataset\obj\Debug\net6.0\consertar_dataset.AssemblyInfoInputs.cache
+C:\Projetos\Mestrado\masters_thesis\survey\consertar_dataset\consertar_dataset\obj\Debug\net6.0\consertar_dataset.AssemblyInfo.cs
+C:\Projetos\Mestrado\masters_thesis\survey\consertar_dataset\consertar_dataset\obj\Debug\net6.0\consertar_dataset.csproj.CoreCompileInputs.cache
+C:\Projetos\Mestrado\masters_thesis\survey\consertar_dataset\consertar_dataset\obj\Debug\net6.0\consertar_dataset.dll
+C:\Projetos\Mestrado\masters_thesis\survey\consertar_dataset\consertar_dataset\obj\Debug\net6.0\refint\consertar_dataset.dll
+C:\Projetos\Mestrado\masters_thesis\survey\consertar_dataset\consertar_dataset\obj\Debug\net6.0\consertar_dataset.pdb
+C:\Projetos\Mestrado\masters_thesis\survey\consertar_dataset\consertar_dataset\obj\Debug\net6.0\consertar_dataset.genruntimeconfig.cache
+C:\Projetos\Mestrado\masters_thesis\survey\consertar_dataset\consertar_dataset\obj\Debug\net6.0\ref\consertar_dataset.dll

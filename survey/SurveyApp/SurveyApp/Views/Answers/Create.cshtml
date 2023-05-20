@@ -1,0 +1,160 @@
+﻿@model SurveyApp.Entity.Answer
+@{
+    ViewData["Title"] = "Survey";
+}
+
+<div style="margin:auto">
+
+    <h1>Cyclist Route Segment Assessment Survey</h1>
+
+    <div class="panel">
+        <ul>
+            <li>The goal of this survey is to collect the cyclists perceptions about the route segments to compare with the automatic assessment created in this research.</li>
+            <li>You should select an answer for all the questions and click "Submit". After that, the page will show a new picture to be assessed.</li>
+            <li>Each picture that you answer is saved separately when you submit it, so don't worry if you need to close the survey before assessing all the pictures, your answers are already saved.</li>
+            <li>Please, answer as much pictures as you can.</li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div>
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <input type="hidden" value="@ViewBag.RouteId" id="RouteId" name="RouteId" />
+                <input type="hidden" value="@ViewBag.ImageUrl" id="ImageUrl" name="ImageUrl" />
+            
+                <div class="imagem" style="background-image:url('@ViewBag.ImageUrl')">
+
+                </div>
+
+                <h2>Presence of infrastructure features:</h2>
+
+                <div class="panel">
+                    <ul>
+                        <li>In this section, you should answer the questions about the presence of traffic characteristics on the image.</li>
+                        <li>If you are not sure about the characteristics on the image, you should answer what you think is more probable based on your perception.</li>
+                    </ul>
+                </div>
+
+                <span>Are you seeing a cycle lane or cycle path on the image?</span>
+                <div class="form-check">
+                    <div>
+                        @Html.RadioButtonFor(model => model.CyclePathExists, false, new { @class = "radio"})  
+                        No
+                    </div>
+                    <div>
+                        @Html.RadioButtonFor(model => model.CyclePathExists, true, new { @class = "radio"})  
+                        Yes
+                    </div>
+                </div>
+                <div>
+                    <span asp-validation-for="CyclePathExists" class="text-danger"></span>
+                </div>
+
+                <span>Are you seeing a major road or a local road? (Major roads are roads made to serve heavy flows of traffic)</span>
+                <div class="form-check">
+                    <div>
+                        @Html.RadioButtonFor(model => model.StreetType, 1, new { @class = "radio"})  
+                        Major
+                    </div>
+                    <div>
+                        @Html.RadioButtonFor(model => model.StreetType, 2, new { @class = "radio"})  
+                        Local
+                    </div>
+                </div>
+                <div>
+                    <span asp-validation-for="StreetType" class="text-danger"></span>
+                </div>
+            
+
+                <span>What is the type of pavement present on the image?</span>
+                <div class="form-check">
+                    <div>
+                        @Html.RadioButtonFor(model => model.PavementType, 1, new { @class = "radio"})  
+                        Asphalt
+                    </div>
+                    <div>
+                        @Html.RadioButtonFor(model => model.PavementType, 2, new { @class = "radio"})  
+                        Cobblestone
+                    </div>
+                    <div>
+                        @Html.RadioButtonFor(model => model.PavementType, 3, new { @class = "radio"})  
+                        Unpaved
+                    </div>
+                </div>
+                <div>
+                    <span asp-validation-for="PavementType" class="text-danger"></span>
+                </div>
+
+                <span>Are you seeing any pavement defect that could be a danger to a cyclist?</span>
+                <div class="form-check">
+                    <div>
+                        @Html.RadioButtonFor(model => model.PavementDefectExists, false, new { @class = "radio"})  
+                        No
+                    </div>
+                    <div>
+                        @Html.RadioButtonFor(model => model.PavementDefectExists, true, new { @class = "radio"})  
+                        Yes
+                    </div>
+                </div>
+                <div>
+                    <span asp-validation-for="PavementDefectExists" class="text-danger"></span>            
+                </div>
+
+                <hr />
+
+                <h2>Cyclist perception:</h2>
+
+                <div class="panel">
+                    <ul>
+                        <li>In this section, you should look at the picture and imagine using this route segment as a cyclist. How safe and comfortable would be to ride a bicycle there?</li>
+                        <li>Being "1" the least safe and comfortable route segment.</li>
+                        <li>And being "10" the most safe and comfortable route segment.</li>
+                        <li>Rate the route segment based on the traffic characteristics identified in the section</li>
+                    </ul>
+                </div>
+
+                <span>Thinking of the route segment on the picture, rate how safe and confortable would be to ride a bicycle there: </span>
+                <div class="form-check">
+                    <div>
+                    @Html.RadioButtonFor(model => model.CyclistPerception, 1, new { @class = "radio"})  
+                    1
+
+                    @Html.RadioButtonFor(model => model.CyclistPerception, 2, new { @class = "radio"})  
+                    2
+
+                    @Html.RadioButtonFor(model => model.CyclistPerception, 3, new { @class = "radio"})  
+                    3
+
+                    @Html.RadioButtonFor(model => model.CyclistPerception, 4, new { @class = "radio"})  
+                    4
+
+                    @Html.RadioButtonFor(model => model.CyclistPerception, 5, new { @class = "radio"})  
+                    5
+                    </div>
+                    <div>
+                    @Html.RadioButtonFor(model => model.CyclistPerception, 6, new { @class = "radio"})  
+                    6
+
+                    @Html.RadioButtonFor(model => model.CyclistPerception, 7, new { @class = "radio"})  
+                    7
+
+                    @Html.RadioButtonFor(model => model.CyclistPerception, 8, new { @class = "radio"})  
+                    8
+
+                    @Html.RadioButtonFor(model => model.CyclistPerception, 9, new { @class = "radio"})  
+                    9
+
+                    @Html.RadioButtonFor(model => model.CyclistPerception, 10, new { @class = "radio"})  
+                    10
+                    </div>
+                </div>
+                <span asp-validation-for="CyclistPerception" class="text-danger"></span>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
