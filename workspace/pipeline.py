@@ -51,14 +51,13 @@ def isTherePavementDefects(img, model_path):
     model = torch.hub.load(yolo_repo_path_obj_detection, 'custom', path=model_path, source='local')
 
     results = model(img)
-    results.show()
 
     return len(results.pandas().xyxy[0]) > 0
 
 def getPavementType(img, model_path):
     preprocessed = preprocess_image_for_pavement_type_model(img, pavement_type_preprocessing_crop_size, pavement_type_preprocessing_crop_size, pavement_type_preprocessing_padding_bottom, pavement_type_preprocessing_scale)
-    #to_tensor = transforms.ToTensor()
-    #tensor = to_tensor(preprocessed)
+    to_tensor = transforms.ToTensor()
+    tensor = to_tensor(preprocessed)
     #tensor = tensor.unsqueeze(0)
 
     model = torch.hub.load(yolo_repo_path_obj_detection, 'custom', path=model_path, source='local', force_reload=True)
@@ -133,7 +132,7 @@ def assessRouteSegment(route_segment_image_path, route_segment_lat, route_segmen
     isTherePavementDef = False
 
     if pavementType == PavementType.ASPHALT.value:
-        isTherePavementDefects(img, pavement_defects_model_path)
+        isTherePavementDef = isTherePavementDefects(img, pavement_defects_model_path)
 
     isLocal = not isMajorStreet(route_segment_lat, route_segment_lon)
 
@@ -160,7 +159,8 @@ while True:
 
     result = assessRouteSegment(r'C:\Projetos\Mestrado\masters_thesis\survey\SurveyApp\SurveyApp\wwwroot\img\\'+params[0], params[1], params[2])
 
-    fileOutput.writelines(str(result[0]) + ',' + str(result[1]) + ',' + str(result[2]) + ',' +  str(result[3]) + ',' + str(result[4]))
+    print(str(result[0]))
+    fileOutput.write(params[0] + ',' + str(result[0]) + ',' + str(result[1]) + ',' + str(result[2]) + ',' +  str(result[3]) + ',' + str(result[4]) + '\n')
     
  
 fileInput.close()

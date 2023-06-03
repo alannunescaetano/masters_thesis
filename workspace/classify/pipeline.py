@@ -28,9 +28,9 @@ pathlib.PosixPath = pathlib.WindowsPath
 yolo_repo_path_obj_detection = 'C:\\Projetos\\Mestrado\\yolov5'
 yolo_repo_path_classification = 'C:\\Projetos\\Mestrado\\yolov5:classifier'
 
-cycle_path_model_path = 'C:\\Projetos\\Mestrado\\masters_thesis\\experiments\\cycle_path_detection\\train_cycle_path_100_epochs_model_s_default\\weights\\best.pt'
-pavement_defects_model_path = 'C:\\Projetos\\Mestrado\\masters_thesis\\experiments\\pavement_defects\\dataset_RDD2022\\train_pavement_defects_50_epochs_model_s_ls\\content\\yolov5\\runs\\train\\yolov5s_ls_01_results5\\weights\\best.pt'
-pavement_type_model_path = r'C:\Projetos\Mestrado\masters_thesis\experiments\pavement_type\our_dataset\50_epochs_gsv_dataset_model_s\content\yolov5\runs\train-cls\exp7\weights\best.pt'
+cycle_path_model_path = r'C:\Projetos\Mestrado\masters_thesis\experiments\cycle_path_detection\cycle_path_400 epochs_model_s_default\train\yolov5s_cycle_path_results\weights\best.pt'
+pavement_defects_model_path = r'C:\Projetos\Mestrado\masters_thesis\experiments\pavement_defects\yolov5l_ls_01_results_400_epochs\weights\best.pt'
+pavement_type_model_path = r'C:\Projetos\Mestrado\masters_thesis\experiments\pavement_type\our_dataset\1500_epochs_gsv_dataset_model_s\content\yolov5\runs\train-cls\exp4\weights\best.pt'
 road_type_database_path = r'..\geodados\data\CartografiaBase.geojson'
 
 pavement_type_preprocessing_padding_bottom = 100
@@ -72,7 +72,7 @@ def getPavementType(img, model_path):
     model = DetectMultiBackend(model_path, device=device, dnn=False, data='data/coco128.yaml', fp16=False)
     stride, names, pt = model.stride, model.names, model.pt
 
-    imgsz=(224, 224)
+    imgsz=(640, 640)
     imgsz = check_img_size(imgsz, s=stride)  # check image size
     bs = 1  # batch_size
     dataset = LoadImages(img, img_size=imgsz, transforms=classify_transforms(imgsz[0]), vid_stride=1)
@@ -91,6 +91,7 @@ def getPavementType(img, model_path):
     results = model(im)
 
     pred = F.softmax(results, dim=1)[0]
+
     return np.argmax(pred).item()
 
 def isMajorStreet(lat, lon):
@@ -146,15 +147,15 @@ def calculate_route_segment_score(isThereCycleInfrastructure, isTherePavementDef
 
 
 def assessRouteSegment(route_segment_image_path, route_segment_lat, route_segment_lon):
-    img = cv2.imread(route_segment_image_path)
+    #img = cv2.imread(route_segment_image_path)
 
-    isThereCycleInfrast = isThereCycleInfrastructure(img, cycle_path_model_path)
+    isThereCycleInfrast = isThereCycleInfrastructure(route_segment_image_path, cycle_path_model_path)
     pavementType = getPavementType(route_segment_image_path, pavement_type_model_path)
 
     isTherePavementDef = False
 
     if pavementType == PavementType.ASPHALT.value:
-        isTherePavementDefects(img, pavement_defects_model_path)
+        isTherePavementDef = isTherePavementDefects(route_segment_image_path, pavement_defects_model_path)
 
     isLocal = not isMajorStreet(route_segment_lat, route_segment_lon)
 
@@ -166,7 +167,24 @@ def assessRouteSegment(route_segment_image_path, route_segment_lat, route_segmen
     print('PAVEMENT TYPE: ' + str(pavementType))
     print('MAJOR STREET: ' + str(not isLocal))
     print('SCORE: ' + str(score))
-    
-assessRouteSegment(r'C:\Projetos\Mestrado\masters_thesis\survey\SurveyApp\SurveyApp\wwwroot\img\segment49.jpg', 38.7358662, -9.1801893)
 
-#print(getPavementType(r'C:\Projetos\Mestrado\masters_thesis\survey\SurveyApp\SurveyApp\wwwroot\img\segment24.jpg', pavement_type_model_path))
+    return [isThereCycleInfrast, pavementType, isTherePavementDef, isLocal, score]
+    
+fileInput = open('input.txt', 'r')
+fileOutput = open('output.txt', 'w')
+
+while True: 
+    line = fileInput.readline()
+    if not line:
+        break
+
+    params = line.split(',')
+    
+    result = assessRouteSegment(r'C:\Projetos\Mestrado\masters_thesis\survey\SurveyApp\SurveyApp\wwwroot\img\\'+params[0], params[1], params[2])
+    print(result)
+
+    fileOutput.write(params[0] + ',' + str(result[0]) + ',' + str(result[1]) + ',' + str(result[2]) + ',' +  str(result[3]) + ',' + str(result[4]) + '\n')
+    
+ 
+fileInput.close()
+fileOutput.close()
